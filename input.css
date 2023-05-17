@@ -1,0 +1,191 @@
+:root {
+  --background: #0b1021;
+  --font: #1a202c;
+  --border: #e2e8f0;
+  --screen: #ffffff;
+  --calculator: #edf2f7;
+  --btn: #f7fafc;
+  --btn-hover: #edf2f7;
+  --btn-active: #e2e8f0;
+  --btn-red: #fc8181;
+  --btn-red-hover: #f56565;
+  --btn-red-active: #e53e3e;
+  --btn-blue: #0fa5e8;
+  --btn-blue-hover: #4299e1;
+  --btn-blue-active: #3182ce;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  margin-bottom: 100px;
+}
+
+@layer components {
+  .calc-container {
+    /* Calcuator container in Tailwindcss web theme */
+    @apply bg-gray-800 rounded-lg shadow-2xl drop-shadow-lg  p-4 w-80 mx-auto mt-10 h-[28rem];
+  }
+  .operator {
+    @apply bg-gray-900 text-white px-4 py-2 mr-2 rounded-lg hover:bg-gray-700;
+  }
+  .function-btn {
+    @apply bg-blue-600 text-black px-4 py-2 mr-2 hover:bg-gray-600;
+  }
+  .number {
+    @apply bg-gray-700 border-white border-[0.5px] 
+     rounded-sm text-[20px] text-white px-4 py-2 mr-2 hover:bg-gray-600;
+  }
+}
+
+html {
+  /* footer support */
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--font);
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  /* footer support */
+  margin-bottom: 100px;
+}
+
+button {
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+/* MAIN */
+
+.calculator {
+  width: 400px;
+  border: 2px var(--border) solid;
+  border-radius: 15px;
+  padding: 20px;
+  margin-inline: auto;
+  background-color: var(--calculator);
+  /* in tailwindcss */
+}
+
+.screen {
+  padding: 10px 20px;
+  border: 2px var(--border) solid;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background-color: var(--screen);
+  text-align: right;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.screen-last {
+  min-height: 32px;
+  font-size: 20px;
+}
+
+.screen-current {
+  min-height: 64px;
+  font-size: 40px;
+}
+
+.buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+
+.span-2 {
+  grid-column: span 2;
+}
+
+.btn {
+  padding: 20px;
+  border: 2px var(--border) solid;
+  border-radius: 5px;
+  background-color: var(--btn);
+  font-size: 20px;
+}
+
+.btn:hover {
+  background-color: var(--btn-hover);
+}
+
+.btn:active {
+  background-color: var(--btn-active);
+}
+
+.btn-red {
+  background-color: var(--btn-red);
+}
+
+.btn-red:hover {
+  background-color: var(--btn-red-hover);
+}
+
+.btn-red:active {
+  background-color: var(--btn-red-active);
+}
+
+.btn-blue {
+  background-color: var(--btn-blue);
+}
+
+.btn-blue:hover {
+  background-color: var(--btn-blue-hover);
+}
+
+.btn-blue:active {
+  background-color: var(--btn-blue-active);
+}
+
+/* Disables input spinners in calc screen */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* FOOTER */
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.fa-github {
+  color: var(--font);
+  font-size: 24px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.fa-github:hover {
+  transform: rotate(360deg) scale(1.2);
+}
